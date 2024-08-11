@@ -11,6 +11,12 @@ It can be quickly deployed through a straightforward integration process, offeri
 
 If you want a SaaS service instead, check [ChatFabrica's SaaS offerings](https://chatfabrica.com/).
 
+## Use cases
+
+- **Customer support:** Give instant responses to customer queries, ensuring that your customers receive the assistance they need without delay.
+- **Sales:** Build your dedicated sales assistant, enhancing customer engagement and boosting conversions. ChatFabrica can also provide personalized recommendations and offer tailored product and service recommendations.
+- **Marketing:** Automate interactions to generate leads, build relationships with potential customers, and increase your conversion rates.
+
 ## Features
 
 - [x] Open source under AGPLv3 license
