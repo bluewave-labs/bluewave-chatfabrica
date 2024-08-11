@@ -41,7 +41,7 @@ node_modules/
 # NestJS
 /dist/
 *.env
-*.env.*
+*.env.
 *.local
 .idea
 .vscode
