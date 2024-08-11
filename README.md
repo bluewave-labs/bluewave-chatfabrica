@@ -16,7 +16,16 @@ It can be quickly deployed through a straightforward integration process, offeri
 - [x] Learn from your webpage (in full or in part)
 - [x] Customizable responses
 - [x] Custom tone (e.g fun, serious, or academic)
-- [ ] Chat log records and conversation histories
+- [x] Chat log records and conversation histories
+
+**Roadmap:**
+
+- [ ] Real support agent integration (live chat)
+- [ ] API usage
+- [ ] Gather and assess leads
+- [ ] Zapier integration
+- [ ] New AI models
+- [ ] Facebook and Instagram integration
 
 ## Tech stack
 
