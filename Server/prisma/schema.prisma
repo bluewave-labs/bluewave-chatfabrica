@@ -1,0 +1,231 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                         String          @id @default(uuid()) @map("_id")
+  email                      String          @unique
+  password                   String
+  isActive                   Boolean         @default(true)
+  customChatbotCount         Int             @default(2147483647) //max int 32 = 2^32-1 = 
+  customMessageCredits       Int             @default(2147483647)
+  customCharactersPerChatbot Int             @default(2147483647)
+  customerId                 Int?
+  totalCredits               Int             @default(2147483647)
+  creditOverMail             Boolean         @default(false)
+  eightPercentMail           Boolean         @default(false)
+  ninePercentMail            Boolean         @default(false)
+  chatBots                   Chatbot[]
+  chatLogs                   ChatLog[]
+  createdAt                  DateTime        @default(now())
+  updatedAt                  DateTime        @updatedAt
+  userPlans                  UserPlans[]
+  analytics                  Analytics?
+  paymentRecord              PaymentRecord[]
+  userActivity               UserActivity[]
+  openAIKey                  String?
+}
+
+model Plan {
+  id                      String          @id @default(uuid()) @map("_id")
+  name                    String
+  messageCredits          Int
+  chatbots                Int
+  charactersPerChatbot    Int
+  linksToTrainOn          String          @default("Unlimited")
+  embedOnWebsites         Boolean         @default(true)
+  uploadFiles             Boolean         @default(true)
+  viewConversationHistory Boolean         @default(true)
+  captureLeads            Boolean         @default(false)
+  zapier                  Boolean         @default(false)
+  slack                   Boolean         @default(false)
+  wordpress               Boolean         @default(false)
+  whatsapp                Boolean         @default(false)
+  messenger               Boolean         @default(false)
+  gpt4Option              Boolean         @default(false)
+  price                   Float
+  type                    PlanType        @default(Monthly)
+  variantId               String
+  isFree                  Boolean         @default(false)
+  isExtraPacket           Boolean         @default(false)
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
+  userPlans               UserPlans[]
+  paymentRecord           PaymentRecord[]
+}
+
+model UserPlans {
+  id                          String   @id @default(uuid()) @map("_id")
+  user                        User?    @relation(fields: [userId], references: [id])
+  userId                      String?
+  plan                        Plan     @relation(fields: [planId], references: [id])
+  planId                      String
+  status                      Boolean  @default(true)
+  price                       Float
+  subscriptionId              String?
+  orderId                     String?
+  initialChatbotCount         Int
+  initialMessageCredits       Int
+  initialCharactersPerChatbot Int
+  currentChatbotCount         Int
+  currentMessageCredits       Int
+  expiresAt                   DateTime
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+}
+
+model Chatbot {
+  id              String     @id @default(uuid()) @map("_id")
+  name            String
+  assistantId     String     @unique
+  files           Json[]
+  links           Json[]
+  visibility      Visibility @default(Private)
+  lastTrainAt     DateTime   @default(now())
+  instructions    String
+  charactersCount Int        @default(0)
+  status          String     @default("Active")
+  model           String
+  temperature     Float      @default(0.2)
+
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String?
+
+  displayName            String?
+  initialMessage         String?  @default("Hi! What can I help you with?")
+  messagePlaceholder     String?
+  footer                 String?
+  chatIcon               String?
+  profileImage           String?
+  messageColor           String?
+  alignButton            Align    @default(Right)
+  chatBubbleButtonColor  String?
+  initialMessageShowTime Int      @default(0)
+  theme                  Theme    @default(Light)
+  iconMessage            String?
+  chatSuggestions        String[]
+  isLeadActive           Boolean  @default(false)
+  leadTitle              String?
+  leadName               String?
+  leadEmail              String?
+  leadPhone              String?
+  version                String   @default("v1")
+
+  crawlDetails  CrawlDetail[]
+  trainingDatas CrawlDetail[]
+  leads         Leads[]
+
+  chatLogs                      ChatLog[]
+  includeChatFabricaAttribution Boolean   @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ChatLog {
+  id        String   @id @default(uuid()) @map("_id")
+  chatbot   Chatbot  @relation(fields: [chatbotId], references: [id], onDelete: Cascade)
+  chatbotId String
+  threadId  String   @unique
+  messages  Json[]
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Analytics {
+  id               String   @id @default(uuid()) @map("_id")
+  user             User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           String?  @unique
+  totalTrain       Int      @default(0)
+  totalChatBots    Int      @default(0)
+  totalMessages    Int      @default(0)
+  totalSpech       Int      @default(0)
+  totalCharacters  Int      @default(0)
+  totalCredits     Int      @default(0)
+  spentCredits     Int      @default(0)
+  remainingCredits Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model UserActivity {
+  id        String      @id @default(uuid()) @map("_id")
+  user      User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?
+  action    UserAction?
+  data      Json?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Leads {
+  id        String  @id @default(uuid()) @map("_id")
+  chatbot   Chatbot @relation(fields: [chatbotId], references: [id], onDelete: Cascade)
+  chatbotId String
+  name      String?
+  email     String?
+  phone     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PaymentRecord {
+  id          String   @id @default(uuid()) @map("_id")
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  plan        Plan?    @relation(fields: [planId], references: [id])
+  planId      String?
+  amount      Float
+  planInfo    Json
+  paymentDate DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+type CrawlDetail {
+  fileId          String
+  name            String
+  url             String?
+  charactersCount Int?
+  body            String?
+}
+
+enum Visibility {
+  Private
+  Public
+}
+
+enum PlanType {
+  Monthly
+  Yearly
+}
+
+enum Theme {
+  Light
+  Dark
+}
+
+enum Align {
+  Left
+  Right
+}
+
+enum UserAction {
+  Signup
+  PlanSubscribed
+  BuyingExtraPacket
+  PlanCancelled
+  PlanSubscriptionFailed
+  BuyingExtraPacketFailed
+  SignupFailed
+  PlanCancellationFailed
+}
