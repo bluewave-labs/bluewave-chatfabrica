@@ -19,6 +19,7 @@ If you want a SaaS service instead, check [ChatFabrica's SaaS offerings](https:/
 - [x] Customizable responses
 - [x] Custom tone (e.g fun, serious, or academic)
 - [x] Chat log records and conversation histories
+- [x] Multi language support
 
 **Roadmap:**
 
