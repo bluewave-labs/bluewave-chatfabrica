@@ -1,13 +1,14 @@
 # Crawlee + CheerioCrawler + JavaScript project
 
-Installation
+# Installation
 $ pnpm install
-Running the app
+
+# Running the app
 # development
 $ pnpm run start
 
 # watch mode
-$ pnpm run start:dev
+$ pnpm run dev
 
 
 This template is a production ready boilerplate for developing with `CheerioCrawler`. Use this to bootstrap your projects using the most up-to-date code.
