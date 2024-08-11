@@ -4,7 +4,7 @@
 $ pnpm install
 
 # Running the app
-# development
+# production
 $ pnpm run start
 
 # watch mode
