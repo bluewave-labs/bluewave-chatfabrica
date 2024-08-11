@@ -9,6 +9,8 @@ ChatFabrica intelligently learns by scanning the web pages and PDFs you select, 
 
 It can be quickly deployed through a straightforward integration process, offering customizable responses that align with your brand. Its user-friendly interface fosters natural conversations, while the system continuously learns and evolves to enhance customer interactions over time.
 
+If you want a SaaS service instead, check [ChatFabrica's SaaS offerings](https://chatfabrica.com/).
+
 ## Features
 
 - [x] Open source under AGPLv3 license
