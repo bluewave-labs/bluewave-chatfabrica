@@ -117,7 +117,7 @@ ENCRYPTION_KEY= # Key to use for encryption
 ### 4. Installing Crawler (Cheerio-Crawlee)
 
 ```bash
-cd crawler
+cd Crawler
 npm install
 # or
 yarn install
@@ -131,7 +131,7 @@ Open separate terminal windows for each section and run the following commands:
 ### Client
 
 ```bash
-cd client
+cd Client
 npm run dev
 # or
 yarn dev
@@ -140,7 +140,7 @@ yarn dev
 ### Server
 
 ```bash
-cd server
+cd Server
 npm run start:dev
 # or
 yarn start:dev
@@ -149,7 +149,7 @@ yarn start:dev
 ### Crawler
 
 ```bash
-cd crawler
+cd Crawler
 npm run dev
 # or
 yarn dev
