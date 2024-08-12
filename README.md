@@ -64,7 +64,7 @@ cd bluewave-chatfabrica
 ### 2. Installing the Client (Next.js)
 
 ```bash
-cd client
+cd Client
 npm install
 # or
 yarn install
