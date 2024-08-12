@@ -82,7 +82,7 @@ NEXT_PUBLIC_URL=http://localhost:3000 # Frontend application URL
 ### 3. Server (Nest.js) Installation
 
 ```bash
-cd server
+cd Server
 npm install
 # or
 yarn install
