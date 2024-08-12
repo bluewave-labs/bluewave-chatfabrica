@@ -66,8 +66,7 @@ cd bluewave-chatfabrica
 ```bash
 cd Client
 npm install
-# or
-yarn install
+
 ```
 
 Create the `.env` file and fill in the necessary variables:
@@ -84,8 +83,7 @@ NEXT_PUBLIC_URL=http://localhost:3000 # Frontend application URL
 ```bash
 cd Server
 npm install
-# or
-yarn install
+
 ```
 
 Create `.env` file and fill in necessary variables:
@@ -119,8 +117,7 @@ ENCRYPTION_KEY= # Key to use for encryption
 ```bash
 cd Crawler
 npm install
-# or
-yarn install
+
 ```
 
 
@@ -133,8 +130,7 @@ Open separate terminal windows for each section and run the following commands:
 ```bash
 cd Client
 npm run dev
-# or
-yarn dev
+
 ```
 
 ### Server
@@ -142,8 +138,7 @@ yarn dev
 ```bash
 cd Server
 npm run start:dev
-# or
-yarn start:dev
+
 ```
 
 ### Crawler
@@ -151,8 +146,7 @@ yarn start:dev
 ```bash
 cd Crawler
 npm run dev
-# or
-yarn dev
+
 ```
 
 The client will run at http://localhost:3000.
