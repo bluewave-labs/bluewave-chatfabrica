@@ -50,9 +50,24 @@ export class AuthService {
 
   async createUser(email: string, password: string) {
     try {
-      const existPlan = await this.prisma.plan.findFirst({
+      let freePlan = await this.prisma.plan.findFirst({
         where: { isFree: true },
       });
+
+      if (!freePlan) {
+        freePlan = await this.prisma.plan.create({
+          data: {
+            name: 'Free',
+            chatbots: 2147483647,
+            messageCredits: 2147483647,
+            charactersPerChatbot: 2147483647,
+            price: 0,
+            isFree: true,
+            isExtraPacket: false,
+            variantId: '',
+          },
+        });
+      }
 
       const user = await this.prisma.user.create({
         data: {
@@ -60,13 +75,13 @@ export class AuthService {
           password: await hashPassword(password),
           userPlans: {
             create: {
-              planId: existPlan.id,
-              currentChatbotCount: existPlan.chatbots,
-              currentMessageCredits: existPlan.messageCredits,
-              initialCharactersPerChatbot: existPlan.charactersPerChatbot,
-              initialChatbotCount: existPlan.chatbots,
-              initialMessageCredits: existPlan.messageCredits,
-              price: existPlan.price,
+              planId: freePlan.id,
+              currentChatbotCount: freePlan.chatbots,
+              currentMessageCredits: freePlan.messageCredits,
+              initialCharactersPerChatbot: freePlan.charactersPerChatbot,
+              initialChatbotCount: freePlan.chatbots,
+              initialMessageCredits: freePlan.messageCredits,
+              price: freePlan.price,
               expiresAt: new Date(
                 new Date().setMonth(new Date().getMonth() + 1),
               ),

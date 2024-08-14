@@ -1,4 +1,3 @@
-
 <h1 align="center"><a href="https://bluewavelabs.ca" target="_blank">BlueWave ChatFabrica</a></h1>
 
 <p align="center"><strong>Customizable chatbot that learns from your content to deliver natural, brand-aligned customer support</strong></p>
@@ -38,9 +37,8 @@ If you want a SaaS service instead, check [ChatFabrica's SaaS offerings](https:/
 
 ## Tech stack
 
-* Frontend: TypeScript, NextJS and Tailwind CSS.
-* Backend: TypeScript, Nestjs, PrismaORM, MongoDB and OpenAI
-
+- Frontend: TypeScript, NextJS and Tailwind CSS.
+- Backend: TypeScript, Nestjs, PrismaORM, MongoDB and OpenAI
 
 # Installation
 
@@ -125,7 +123,6 @@ npm install
 
 ```
 
-
 ## Running the Application
 
 Open separate terminal windows for each section and run the following commands:
@@ -142,6 +139,7 @@ npm run dev
 
 ```bash
 cd Server
+npm run db:migrate
 npm run start:dev
 
 ```
@@ -165,4 +163,3 @@ The crawler will run at http://localhost:8080.
 Make sure to fill in all `.env` files. These files contain important configuration information that is required for the application to run properly.
 
 If you encounter any problems or need more information, please contact the project manager.
-
