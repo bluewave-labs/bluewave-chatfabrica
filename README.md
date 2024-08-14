@@ -73,9 +73,14 @@ Create the `.env` file and fill in the necessary variables:
 
 ```
 NEXT_PUBLIC_SENTRY_DSN= # DSN for Sentry bug tracking
-NEXT_PUBLIC_BACKEND_URL= # URL of the Backend API
 AUTH_SECRET= # Secret key for authentication
 NEXT_PUBLIC_URL=http://localhost:3000 # Frontend application URL
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000/api/v1 # URL of the Backend API
+LEMONSQUEEZY_API_KEY=""
+LEMONSQUEEZY_STORE_ID=""
+LEMON_SQUEEZY_WEBHOOK_SIGNATURE=""
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=""
+SENTRY_AUTH_TOKEN=""
 ```
 
 ### 3. Server (Nest.js) Installation
