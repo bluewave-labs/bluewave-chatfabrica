@@ -47,7 +47,7 @@ This project consists of three main parts: client (Next.js), server (Nest.js) an
 ## Requirements
 
 - Node.js (v14 or later recommended)
-- npm or yarn
+- npm
 - Git
 
 ## Installation
