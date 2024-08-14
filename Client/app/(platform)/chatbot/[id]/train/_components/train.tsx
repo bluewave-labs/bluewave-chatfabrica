@@ -51,7 +51,6 @@ export default function TrainForm({
                 Authorization: `Bearer ${session?.user.accessToken}`,
               },
               body: formData,
-              mode: "no-cors",
             }
           );
 

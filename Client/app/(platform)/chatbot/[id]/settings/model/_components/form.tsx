@@ -84,7 +84,7 @@ export default function ModelForm({ chatbot }: { chatbot: Chatbot }) {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="gpt-4o-mini	">GPT-4o-mini </SelectItem>
+            <SelectItem value="gpt-4o-mini">GPT-4o-mini </SelectItem>
             <SelectItem value="gpt-4o">GPT-4o</SelectItem>
           </SelectContent>
         </Select>

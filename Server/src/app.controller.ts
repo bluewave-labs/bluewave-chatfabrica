@@ -9,6 +9,7 @@ import { diskStorage } from 'multer';
 import { Request } from 'express';
 import { AppService } from './app.service';
 import { User } from './common/decorators/user.decorator';
+import { Auth } from './common/decorators/auth.decorator';
 
 const UPLOADS_DIR = 'uploads/';
 
@@ -32,6 +33,7 @@ export class AppController {
       limits: { fileSize: 1024 * 1024 * 1024 },
     }),
   )
+  @Auth()
   @Post('uploads')
   async uploadFile(
     @UploadedFiles() files: Express.Multer.File[],
