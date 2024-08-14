@@ -70,15 +70,15 @@ npm install
 Create the `.env` file and fill in the necessary variables:
 
 ```
-NEXT_PUBLIC_SENTRY_DSN= # DSN for Sentry bug tracking
-AUTH_SECRET= # Secret key for authentication
+NEXT_PUBLIC_SENTRY_DSN="https://XXX.ingest.us.sentry.io/XXX"# DSN for Sentry bug tracking
+AUTH_SECRET="anysecretkey" # Secret key for authentication
 NEXT_PUBLIC_URL=http://localhost:3000 # Frontend application URL
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8000/api/v1 # URL of the Backend API
-LEMONSQUEEZY_API_KEY=""
-LEMONSQUEEZY_STORE_ID=""
-LEMON_SQUEEZY_WEBHOOK_SIGNATURE=""
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=""
-SENTRY_AUTH_TOKEN=""
+LEMONSQUEEZY_API_KEY="From Lemon Squeezy Panel"
+LEMONSQUEEZY_STORE_ID="From Lemon Squeezy Panel"
+LEMON_SQUEEZY_WEBHOOK_SIGNATURE="From Lemon Squeezy Panel"
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-XXXXXXXXXX"
+SENTRY_AUTH_TOKEN="From Sentry Panel"
 ```
 
 ### 3. Server (Nest.js) Installation
@@ -92,27 +92,27 @@ npm install
 Create `.env` file and fill in necessary variables:
 
 ```
-NODE_ENV=development # Application environment
-APP_PORT=8000 # Port where application will run
-APP_NAME="ChatFabrica API" # Application name
-API_PREFIX=api/v1 # API path prefix
-FRONTEND_DOMAIN=http://localhost:3000 # Address of frontend application
-BACKEND_DOMAIN=http://localhost:8000 # Address of backend application
-CRAWL_API_URL= # URL of crawler API
-LEMONSQUEEZY_WEBHOOK_SECRET= # LemonSqueezy webhook secret key
-DATABASE_URL= # Database connection URL
-OPENAI_API_KEY= # OpenAI API key
-JWT_SECRET= # Secret key for JWT
-MAIL_HOST= # Email server address
-MAIL_PORT= # Email server port
-MAIL_USER= # Email username
-MAIL_PASSWORD= # Email password
-MAIL_IGNORE_TLS= # Ignore TLS (true/false)
-MAIL_SECURE= # Use secure connection (true/false)
-MAIL_REQUIRE_TLS= # Require TLS (true/false)
-MAIL_DEFAULT_EMAIL= # Default sender email address
-MAIL_DEFAULT_NAME= # Default sender name
-ENCRYPTION_KEY= # Key to use for encryption
+NODE_ENV=development
+APP_PORT=8000
+APP_NAME="ChatFabrica API"
+API_PREFIX=api/v1
+FRONTEND_DOMAIN=http://localhost:3000
+BACKEND_DOMAIN=http://localhost:8000
+CRAWL_API_URL="http://localhost:8080/load-url"
+LEMONSQUEEZY_WEBHOOK_SECRET="From Lemon Squeezy Panel"
+DATABASE_URL="mongodb+srv://<USERNAME>:<PASSWORD>@<DB-URL>/<DB-NAME>?retryWrites=true&w=majority"
+OPENAI_API_KEY="sk-XXX"
+JWT_SECRET="anysecretkey"
+MAIL_HOST=smtp.zoho.com
+MAIL_PORT=465
+MAIL_USER=info@chatfabrica.com
+MAIL_PASSWORD=mailpassword
+MAIL_IGNORE_TLS=true
+MAIL_SECURE=false
+MAIL_REQUIRE_TLS=false
+MAIL_DEFAULT_EMAIL=info@chatfabrica.com
+MAIL_DEFAULT_NAME=Api
+ENCRYPTION_KEY=anyencryptionkey
 ```
 
 ### 4. Installing Crawler (Cheerio-Crawlee)
